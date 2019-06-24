@@ -9,10 +9,6 @@ SteamAccountSwitcher is a Windows Application for easy switching between Steam a
 
 See releases for changelogs.
 
-## Screenshots
-
-![alt text](http://puu.sh/9I1E9/aa53d096c5.png, "Screenshot 1")
-
 ## Download
 
 [Latest Release](https://github.com/devpixel12/steam-account-switcher/releases/latest)
@@ -23,8 +19,3 @@ See releases for changelogs.
 
 ## developer ##
 @dev_pixel - main developer/designer
-//@		  - for development/designer //
-//@          - for Crypto code //
-//@		  - for steam.cs code //
-//@		  - for testing //
-//@		  - for testing //		  
