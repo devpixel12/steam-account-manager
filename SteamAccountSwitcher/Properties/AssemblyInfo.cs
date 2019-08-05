@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SteamAccountSwitcher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Steam Account manager (SAM) is a Windows Application for easy switching between Steam accounts")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("pixel fire studios")]
 [assembly: AssemblyProduct("SteamAccountSwitcher")]
@@ -52,4 +52,5 @@ using System.Windows;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.1.*")]
+[assembly: NeutralResourcesLanguage("en-AU")]
 //[assembly: AssemblyFileVersion("1.0.0")]

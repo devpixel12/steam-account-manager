@@ -18,6 +18,8 @@ using System.Xml.Serialization;
 using System.ComponentModel;
 using Microsoft.Win32;
 using System.Reflection;
+using System.Windows.Forms;
+using System.Windows.Interop;
 
 namespace SteamAccountSwitcher
 {
@@ -32,10 +34,18 @@ namespace SteamAccountSwitcher
         Steam steam;
 
         string settingsSave;
+        public Screen GetCurrentScreen(Window window)
+        {
+            return Screen.FromHandle(new WindowInteropHelper(window).Handle);
+        }
 
         public MainWindow()
         {
             InitializeComponent();
+
+            var screen = GetCurrentScreen(this);
+            var height = screen.Bounds.Height;
+            var width = screen.Bounds.Width;
 
             this.Top = Properties.Settings.Default.Top;
             this.Left = Properties.Settings.Default.Left;
@@ -51,8 +61,6 @@ namespace SteamAccountSwitcher
             
             //Get directory of Executable
             settingsSave = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase).TrimStart(@"file:\\".ToCharArray());
-
-            this.buttonInfo.ToolTip = "Build Version: " + Assembly.GetEntryAssembly().GetName().Version.ToString();
 
             try
             {
@@ -73,7 +81,7 @@ namespace SteamAccountSwitcher
                 accountList.InstallDir = SelectSteamFile(@"C:\Program Files (x86)\Steam");
                 if(accountList.InstallDir == null)
                 {
-                    MessageBox.Show("You cannot use SteamAccountSwitcher without selecting your Steam.exe. Program will close now.", "Steam missing", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.Forms.MessageBox.Show("You cannot use SteamAccountSwitcher without selecting your Steam.exe. Program will close now.", "Steam missing", System.MessageBoxButton.OK, MessageBoxImage.Error);
                     Close();
                 }
             }
@@ -84,13 +92,13 @@ namespace SteamAccountSwitcher
 
         private string SelectSteamFile(string initialDirectory)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
             dialog.Filter =
                "Steam |steam.exe";
             dialog.InitialDirectory = initialDirectory;
             dialog.Title = "Select your Steam Installation";
-            return (dialog.ShowDialog() == true)
-               ? dialog.FileName : null;
+            return (dialog.ShowDialog() = true)
+                     ? dialog.FileName : null;
         }
 
         private void buttonLogout_Click(object sender, RoutedEventArgs e)
@@ -211,5 +219,9 @@ namespace SteamAccountSwitcher
             }
         }
 
+        private void Buttonquit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }
