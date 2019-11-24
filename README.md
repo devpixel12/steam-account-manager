@@ -1,3 +1,7 @@
+# warning this soruce code is not up to date with the release files as i have lost the newest soruce code as i had to reinstall windows and i am moving very soon so i maybe able to work on it soon but please give me some time :) #
+
+
+
 # Steam Account Manager ##
 
 Steam-Account-Manager is a Windows Application for easy switching between Steam accounts.
